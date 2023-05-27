@@ -9,6 +9,7 @@ const UserSchema = mongoose.Schema(
     password: {
       type: String,
       required: [true, 'Password is required'],
+      min: [6, 'Your password must be more than 6 characters'],
     },
     name: {
       type: String,
@@ -19,6 +20,11 @@ const UserSchema = mongoose.Schema(
     },
     phoneNumber: {
       type: String,
+    },
+    role: {
+      type: String,
+      enum: ['USER', 'ADMIN'],
+      default: 'USER',
     },
   },
   {

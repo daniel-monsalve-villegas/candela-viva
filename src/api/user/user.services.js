@@ -1,11 +1,11 @@
 import User from './user.model.js'
 
 export const getUsers = async () => {
-  return User.find()
+  return User.find({}, { password: 0 })
 }
 
 export const getUser = async (id) => {
-  const user = User.findById(id)
+  const user = User.findById(id, { password: 0 })
   return user
 }
 
